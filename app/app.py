@@ -24,7 +24,7 @@ def upload_file():
 
     filename = secure_filename(file.filename)
     try:
-        s3.upload_fileobj(file, S3_BUCKET, filename)
+        s3.upload_file(file, S3_BUCKET, filename)
         return {'message': 'File uploaded successfully', 'filename': filename}, 200
     except (NoCredentialsError, PartialCredentialsError):
         return {'error': 'Credentials not available'}, 500
