@@ -8,8 +8,8 @@ import uuid
 app = Flask(__name__)
 
 # S3 configuration
-S3_BUCKET = 'ap-northeast-1'  # ここにバケット名を入力
-S3_REGION = 'yuruhack-assets'  # ここにバケットのリージョンを入力
+S3_BUCKET = 'yuruhack-assets'
+S3_REGION = 'ap-northeast-1'
 
 # Boto3 client
 s3 = boto3.client('s3', region_name=S3_REGION)
