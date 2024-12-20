@@ -1,4 +1,4 @@
-from flask import Flask, request, send_file, abort
+from flask import Flask, request, send_file, abort, render_template
 import boto3
 from botocore.exceptions import NoCredentialsError, PartialCredentialsError
 import os
@@ -53,5 +53,9 @@ def get_file(file_name):
         if os.path.exists(file_path):
             os.remove(file_path)
 
+@app.route('/assets/upload', methods=['GET'])
+def upload_file_form():
+    return render_template('upload.html')
+
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5001)
